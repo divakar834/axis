@@ -3,11 +3,22 @@ import { Entity } from "@shared/schema";
 // ── Constants ────────────────────────────────────────────────────────────────
 
 const INDIAN_CITIES = new Set([
+  // Major cities
   "Mumbai","Delhi","Bangalore","Hyderabad","Ahmedabad","Chennai","Kolkata",
   "Surat","Pune","Jaipur","Lucknow","Kanpur","Nagpur","Indore","Thane",
   "Bhopal","Visakhapatnam","Patna","Vadodara","Coimbatore","Madurai","Nashik",
   "Faridabad","Meerut","Rajkot","Agra","Varanasi","Srinagar","Aurangabad",
   "Vadapalani","Noida","Gurgaon","Ghaziabad","Chandigarh","Mysore","Bhubaneswar",
+  // Chennai localities and areas
+  "Thanneer","Pettai","Nagar","Mambalam","Alapakkam","Adyar","Velachery",
+  "Tambaram","Porur","Perambur","Tondiarpet","Mylapore","Triplicane","Egmore",
+  "Kodambakkam","Guindy","Sholinganallur","Perungudi","Thoraipakkam","Pallavaram",
+  "Chromepet","Medavakkam","Ambattur","Avadi","Poonamallee","Kolathur",
+  "Villivakkam","Thirumangalam","Koyambedu","Arumbakkam","Saligramam",
+  "Ashok","Nungambakkam","Chetpet","Kilpauk","Aminjikarai","Ayanavaram",
+  // Generic location words that appear TitleCase
+  "Nagar","Pettai","Salai","Street","Road","Colony","Layout","Extension",
+  "West","East","North","South","Central","Main","Cross","Junction","Circle",
 ]);
 
 const CRIME_KEYWORDS = [
@@ -39,6 +50,11 @@ const PHRASE_BLACKLIST = new Set([
   "dear customer","bank account","verification link","login activity",
   "unusual login","account required","support representative",
   "alright share","let share","cash transfer","reserve bank",
+  // Business names
+  "murugan petroleum","petrol bunk","fuel station","petrol station",
+  "anna nagar","anna nagar west","thanneer pettai","rs puram","west mambalam",
+  "krishnasamy nagar","cbcid chennai","cyber cell","tn police","tamil nadu",
+  "scan pay","scan and pay","upi fraud","qr code","qr swap",
 ]);
 
 // Words that CANNOT appear in a person name
@@ -71,9 +87,20 @@ const INVALID_NAME_WORDS = new Set([
   "online","phishing","financial","cyber","india","state","security","team",
   "student","customer","representative","individual","person","people","user",
   "link","fake","sent","open","money","amount","approximately","shortly","later",
+  // Business/place words that appear TitleCase but are not names
+  "petroleum","petrol","bunk","fuel","pump","station","enterprises","solutions",
+  "technologies","industries","traders","agencies","associates","consultancy",
+  "services","systems","networks","communications","international","national",
+  "global","digital","smart","quick","fast","express","super","mega","mini",
+  "nagar","pettai","salai","colony","layout","extension","junction","circle",
+  "west","east","north","south","central","main","cross","road","street",
+  "murugan","krishnasamy","balakrishnan","proprietor","inspector","constable",
+  "section","article","rule","clause","order","notice","complaint","report",
+  "cbcid","tncyb","police","cyber","cell","court","judge","magistrate",
+  "district","taluk","ward","zone","block","area","region","sector","division",
 ]);
 
-const NON_NAME_SUFFIX_RE = /(?:tion|ment|ness|ance|ence|ity|ism|ist|ware|file|mode|base|line|rate|form|port|page|code|list|view|corp|tech|\.com|\.net|\.org|\.gov|\.edu|\.in|srv|sys|api|sql|xml|json|csv|pdf|txt|exe|dll|arc|vlan|smb|ssh|ftp|mobile|browser|device|server|client|network|protocol|transfer|submitted|success|failure|warning|alert|update|alert|phish|fraud|scam)$/i;
+const NON_NAME_SUFFIX_RE = /(?:tion|ment|ness|ance|ence|ity|ism|ist|ware|file|mode|base|line|rate|form|port|page|code|list|view|corp|tech|\.com|\.net|\.org|\.gov|\.edu|\.in|srv|sys|api|sql|xml|json|csv|pdf|txt|exe|dll|arc|vlan|smb|ssh|ftp|mobile|browser|device|server|client|network|protocol|transfer|submitted|success|failure|warning|alert|update|phish|fraud|scam|petroleum|enterprises|solutions|technologies|industries|traders|associates|consultancy|services|systems|communications|international|national|global|bunk|pump|station|nagar|pettai|salai|colony|layout|junction|west|east|north|south|central|main|road|street|circle)$/i;
 
 // Known Indian/common name parts — used to boost confidence
 const KNOWN_NAME_PARTS = new Set([
