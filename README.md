@@ -150,7 +150,7 @@ Cyber Fraud · Phishing · Identity Theft · Unauthorized Hacking · Data Exfilt
 
 | Component | Minimum |
 |---|---|
-| RAM | 8GB (16GB recommended) |
+| RAM | 4GB (8GB recommended) |
 | Disk | 15GB free |
 | OS | Windows 10+, macOS 12+, Ubuntu 20.04+ |
 | GPU | Not required (CPU inference) |
