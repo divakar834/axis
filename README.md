@@ -1,4 +1,4 @@
-# AXIS — Automated Examination & Investigation System
+# AXIS — Automated eXamination & Investigation System
 
 > A fully offline, local AI-powered cybercrime investigation platform for law enforcement and forensic analysts.
 
